@@ -1,0 +1,20 @@
+<h1 class="title">Quizz World of Warcraft</h1>
+<div class="quizz-container">
+  <div class="quizz-question" *ngFor="let question of questions; let i = index">
+    <fieldset class="fieldset">
+      <legend>{{ question.title }}</legend>
+
+      <div class="answers">
+        <button class="answer" *ngFor="let answer of question.answers; let j = index" (click)="selectAnswer(i, j)" [ngClass]="{ 'selected': selectedAnswers[i] === j }" >
+          {{ answer.text }}
+        </button>
+      </div>
+    </fieldset>
+  </div>
+
+  <button class="submit-button" (click)="submitAnswers()">Envoyer vos réponses</button>
+
+  <div *ngIf="score !== null" class="score">
+    Votre score est : {{ score }} / {{questions.length  }}
+  </div>
+</div>
