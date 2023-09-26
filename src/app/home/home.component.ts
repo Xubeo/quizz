@@ -117,14 +117,11 @@ export class HomeComponent {
   }
 
   submitAnswers() {
-    // Initialisez le score à 0
     this.score = 0;
 
-    // Parcourez les questions et comparez les réponses sélectionnées avec les réponses correctes
     this.questions.forEach((question, i) => {
       const selectedAnswerIndex = this.selectedAnswers[i];
       if (selectedAnswerIndex !== undefined && question.correctAnswerIndex === selectedAnswerIndex) {
-        // Vérifiez que this.score n'est pas null ou undefined avant d'incrémenter
         if (this.score !== null && this.score !== undefined) {
           this.score++;
         }
